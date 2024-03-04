@@ -1,17 +1,5 @@
-import React from 'react';
-import FormSearch  from './form-search';
-import FormBootstrap from './form-bootstrap'
-import FormText from './form-text';
-
+import React from 'react'
+import FormSelectFile from './form-select-file';
 export default function App() {
-
-  return <>
-  <FormSearch/>
-  <br>
-  </br>
-  <FormBootstrap/>
-  <br>
-  </br>
-  <FormText/>
-  </>
+return <FormSelectFile/>
 }
