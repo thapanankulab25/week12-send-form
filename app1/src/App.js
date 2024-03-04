@@ -8,6 +8,6 @@ export default function App() {
  
 
   return <>
-  <FormCheck/> <br></br><FormSelectFile/> <br></br> <FormValidation/>
+  <FormCheck/><br></br><FormSelectFile/> <br></br> <FormValidation/>
   </>
 }
