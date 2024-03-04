@@ -1,27 +1,27 @@
 import React from 'react'
-import { useForm } from ………………………………………
+import { useForm } from react-hook-form
 export default function FormValidation() {
 const cats = [['100', 'ไอที'], ['200', 'เครื่องจักรกล'], ['300', 'เคมีภัณฑ์']]
 const opts = ['Option 1', 'Option 2', 'Option 3']
 const inputFile = React.createRef()
-const {register, handleSubmit, formState: {errors}} = ……………………….
+const {register, handleSubmit, formState: {errors}} = useForm
 const onSubmitForm = (event) => { 
 let maxNumFiles = 3
 let maxSize = 300
-if (inputFile.current.files.length > …………………………………………) {
+if (inputFile.current.files.length > maxNumFiles) {
 alert(`เลือกได้ไม่เกิน ${maxNumFiles} ไฟล์`)
 event.preventDefault()
 return
 } 
 for (let f of inputFile.current.files) {
 if (f.size > maxSize * 1000) {
-alert(`...................................................................................`)
+alert(`ขนาดไฟล์ไม่ควรเกิน ${maxSize} KB`)
 event.preventDefault()
 return
 }
 } 
 }
-const …………………….. = {
+const err = {
     fontSize: 'smaller',
     color: 'red'
     }
@@ -51,7 +51,7 @@ className="form-control form-control-sm"
 <input type="number" id="price" name="price" min="0" step="any"
 className="form-control form-control-sm"
 {...register('price', {validate: value => parseFloat(value) > 0}) } />
-{errors.price && <div style={err}>……………………………………………………</div>}
+{errors.price && <div style={err}>กำหนดราคาสินค้าเป็นตัวเลขที่มากกว่า 0</div>}
 </div>
 <div className="form-group mb-3">
 <label htmlFor="detail">รายละเอียดสินค้า *</label>
@@ -61,26 +61,33 @@ className="form-control form-control-sm"
 </textarea>
 {…………………………………………………………………………………………………………}
 </div>
-<div className="……………………………………">
-<label htmlFor=“dateAdded">วันที่เพิ่มสินค้า *</label>
+<div className="form-group mb-3">
+<label htmlFor="dateAdded">วันที่เพิ่มสินค้า *</label>
 <input type="…………….." id="dateAdded" name="dateAdded"
 className="…………………………………………………………………"/>
 </div>
 <div className="form-group mb-3">
 <label htmlFor="file" className="form-label">ภาพสินค้า * (ไม่เกิน 3 ไฟล์ 
 ขนาดสูงสุด 300 KB/ไฟล์)</label>
-<input type="…………….." id="file" accept="image/*"
+<input type="file" id="file" accept="image/*"
 className="form-control form-control-sm" ref={……………} multiple/>
 </div>
-<div>…………………………….</div>
+<div>ออปชั่นเพิ่มเติม</div>
 {
 opts.map((opt, i) => {
 return (
 <div className="form-check form-check-inline mb-2">
-<input type="………………………" id={'opt'+i} value={opt}
+<input type="checked" id={'opt'+i} value={opt}
 className="form-check-input"/>
-<label htmlFor={'opt'+i} className="form-check-label">{……….}</label>
+<label htmlFor={'opt'+i} className="form-check-label">{opt}</label>
 </div>
 )
 })
+}
+<div className="text-center mt-4">
+<button className="btn-primary btn-sm px-4">OK</button>
+</div>
+</form>
+</div>
+)
 }
