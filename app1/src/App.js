@@ -1,5 +1,11 @@
+// import React from 'react'
+// import FormSelectFile from './form-select-file';
+// export default function App() {
+// return <FormSelectFile/>
+// }
+
 import React from 'react'
-import FormSelectFile from './form-select-file';
+import FormCheck from './form-check';
 export default function App() {
-return <FormSelectFile/>
+return <FormCheck/>
 }
