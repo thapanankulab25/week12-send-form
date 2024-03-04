@@ -1,11 +1,13 @@
-// import React from 'react'
-// import FormSelectFile from './form-select-file';
-// export default function App() {
-// return <FormSelectFile/>
-// }
-
-import React from 'react'
+import React from 'react';
 import FormCheck from './form-check';
+import FormSelectFile from './form-select-file';
+import FormValidation from './form-validation';
+
+
 export default function App() {
-return <FormCheck/>
+ 
+
+  return <>
+  <FormCheck/> <br></br><FormSelectFile/> <br></br> <FormValidation/>
+  </>
 }

@@ -5,6 +5,7 @@ const selectMaxNumFiles = React.useRef()
 const selectMaxSize = React.useRef()
 let maxNumfiles = [1,2,3,4,5] 
 let maxFileSizes = [50, 100, 200, 500, 1000] 
+
 const onClickButton = () => {
     let maxNumFiles = selectMaxNumFiles.current.value
     let maxSize = selectMaxSize.current.value
@@ -25,7 +26,7 @@ for (let f of inputFile.current.files) {
         style={{ width:'400px', background:'#cee'}}>
         <form>
         <div className="form-group mb-3">
-        <label htmlFor="maxNumFiles" className="form-label">จ านวนไฟล์สูงสุด</label>
+        <label htmlFor="maxNumFiles" className="form-label">จำนวนไฟล์สูงสุด</label>
         <select id="maxNumFiles" className="form-select form-select-sm" ref={selectMaxNumFiles}>
         {
         maxNumfiles.map(i => {
